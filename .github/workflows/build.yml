@@ -26,14 +26,15 @@ jobs:
           java-version: "21"
           cache: maven
 
-      - name: Build with Maven
+      - name: Build Azrathiel
+        working-directory: azrathiel
         run: mvn --batch-mode --no-transfer-progress clean package
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
-          name: Azrathiel-1.0.0
-          path: target/*.jar
+          name: Azrathiel-v1.1
+          path: azrathiel/target/*.jar
           if-no-files-found: error
           retention-days: 14
           
